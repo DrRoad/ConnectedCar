@@ -1,11 +1,11 @@
 library(markdown)
-load("label.RData")
+#load("label.RData")
 library(leaflet)
 library(dygraphs)
 
 shinyUI(
   navbarPage(
-    title=" ",
+    title="",
     windowTitle="Connected Car Visualization", collapsible=TRUE, fluid=FALSE,
     id='page',
     tabPanel(

@@ -14,9 +14,6 @@ library(xts)
 #uniqueIDs <- unique(cars_weather$DeviceID)
 
 shinyServer(function(input, output, session) {
-  for (file in list.files("server")) {
-    source(file.path("server", file), local = TRUE)
-  }
 
   observe({
     updateSelectizeInput(session, 'trip_id', 

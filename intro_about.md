@@ -1,4 +1,4 @@
 Further Details
 ===============
 
-More detailed information on how to use this web application. Further reading on the data from the global population projections by age, sex and education is provided in <a href="http://ukcatalogue.oup.com/product/9780198703167.do" target="_blank">Lutz, Butz, and K.C. (2014)</a>. Access the executive summary <a href="http://www.iiasa.ac.at/publication/more_XO-14-031.php" target="_blank"><i class="fa fa-external-link"></i></a>.
+This page provides more detailed information on the data provided in this web application and how to use its various features. For an overview of the dataset, the <a href="http://www.snet.tu-berlin.de/menue/research/data_science/" target="_blank">Data Science Group</a> at the <a href="http://www.snet.tu-berlin.de" target="_blank">Service-centric Networking</a> chair at <a href="http://www.tu-berlin.de" target="_blank">TU Berlin</a>, or information about the web app was constructed, continue to the "Details" section below.  For more specifics about how to use the web application, see "FAQ."  
