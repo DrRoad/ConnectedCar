@@ -49,10 +49,10 @@ shinyServer(function(input, output, session) {
                      opacity = 0.6) %>%
     addMarkers(lons[1],lats[1],
                icon = startIcon,
-               popup = paste('<b>Start Time</b><br>',as.character(tripdata()$TimeUTC[1]))) %>%
+               popup = paste('<b>Start Time</b><br>',as.character(as.POSIXct(as.POSIXlt(tripdata()$TimeUTC[1],tz="EST5EDT"),tz="GMT")))) %>%
     addMarkers(lons[length(lons)],lats[length(lats)],
                icon = stopIcon,
-               popup = paste('<b>End Time</b><br>',as.character(tripdata()$TimeUTC[length(lons)])))
+               popup = paste('<b>End Time</b><br>',as.character(as.POSIXct(as.POSIXlt(tripdata()$TimeUTC[length(lons)],tz="EST5EDT"),tz="GMT"))))
   })
   
   #---------------------------------------------------
@@ -62,7 +62,7 @@ shinyServer(function(input, output, session) {
   # Reactive data for updated time series
   pltdata <- eventReactive(input$makeplot,{
     t <- tripdata()[c('TimeUTC',input$plotvars)]
-    t[,1] <- as.POSIXct(as.POSIXlt(t[,1],tz="EST5EDT"),tz="GMT")
+    t[,1] <- as.POSIXct(as.POSIXlt(t[,1],tz="EST5EDT"))
     xts(t[,-1],order.by=t[,1])
   })
   
