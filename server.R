@@ -32,14 +32,27 @@ shinyServer(function(input, output, session) {
     lons <- tripdata()$GPS_Longitude
     lats <- tripdata()$GPS_Latitude
 
+    startIcon <- makeIcon(
+      iconUrl = "carGreen.svg", iconWidth = 18, iconHeight =24
+     )
+    stopIcon <- makeIcon(
+      iconUrl = "carRed.svg", iconWidth = 18, iconHeight =24
+    )
+    
     leaflet() %>%
     addTiles('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png') %>% 
     setView(lng = -83.75, lat = 42.28, zoom = 12) %>%
-    addCircleMarkers(lons[seq(1,length(lons),10)],
+    addPolylines(lons[seq(1,length(lons),10)],
                      lats[seq(1,length(lats),10)],
-                     color= "red",
-                     opacity = 1-colors[seq(1,length(colors),10)],
-                     radius = 2)
+                     color= "blue",
+                     weight=8,
+                     opacity = 0.6) %>%
+    addMarkers(lons[1],lats[1],
+               icon = startIcon,
+               popup = paste('<b>Start Time</b><br>',as.character(tripdata()$TimeUTC[1]))) %>%
+    addMarkers(lons[length(lons)],lats[length(lats)],
+               icon = stopIcon,
+               popup = paste('<b>End Time</b><br>',as.character(tripdata()$TimeUTC[length(lons)])))
   })
   
   #---------------------------------------------------
